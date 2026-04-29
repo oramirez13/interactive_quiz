@@ -32,7 +32,11 @@ interactive_quiz/
 - barra de progreso
 - retroalimentacion inmediata
 - resumen final de resultados
-- revision de respuestas
+
+## Vista previa
+
+![Pantalla inicial](quiz_01.png)
+![Pantalla del quiz](quiz_02.png)
 
 ## Ejecutar localmente
 
@@ -80,6 +84,15 @@ Si subes todo `DESARROLLO_WEB` a un solo repositorio y no este proyecto por sepa
 - Root Directory: `interactive_quiz`
 - Build Command: dejar vacio
 - Publish Directory: `.`
+
+## Publicacion recomendada
+
+Para dejar el proyecto mas limpio en GitHub:
+
+- usa un repositorio dedicado para `interactive_quiz`
+- agrega una descripcion corta del repo
+- publica el sitio en Render como `Static Site`
+- usa este `README.md` como portada del proyecto
 
 ## Notas
 

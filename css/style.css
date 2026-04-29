@@ -43,8 +43,7 @@ body {
 
 .display-title,
 .result-title,
-.question-text,
-.review-q {
+.question-text {
   color: #ffffff;
 }
 
@@ -77,7 +76,6 @@ body {
 .btn-next,
 .opt-btn,
 .stat-card,
-.review-item,
 .question-card {
   border-radius: var(--border-radius);
 }
@@ -216,8 +214,7 @@ body {
 }
 
 .timer-badge.urgent,
-.feedback-msg.fail,
-.review-ans .your {
+.feedback-msg.fail {
   color: var(--color-danger);
 }
 
@@ -230,8 +227,7 @@ body {
 }
 
 .question-card,
-.opt-btn,
-.review-item {
+.opt-btn {
   border: 2px solid var(--color-border);
   background-color: var(--color-card);
 }
@@ -308,8 +304,7 @@ body {
   font-weight: 600;
 }
 
-.feedback-msg.ok,
-.review-ans .correct-ans {
+.feedback-msg.ok {
   color: var(--color-success);
 }
 
@@ -355,21 +350,6 @@ body {
 .stat-label {
   margin-top: 2px;
   font-size: 0.75rem;
-}
-
-.review-item {
-  margin-bottom: 8px;
-  padding: 10px 14px;
-}
-
-.review-q {
-  margin-bottom: 4px;
-  font-size: 0.85rem;
-  font-weight: 600;
-}
-
-.review-ans {
-  font-size: 0.8rem;
 }
 
 @media (max-width: 767.98px) {

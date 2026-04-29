@@ -138,7 +138,6 @@ var $resultTitle = $("#res-title");
 var $resultEmoji = $("#res-emoji");
 var $resultScore = $("#res-score");
 var $resultSub = $("#res-sub");
-var $reviewList = $("#review-list");
 var $correctStat = $("#st-correct");
 var $wrongStat = $("#st-wrong");
 var $timeStat = $("#st-time");
@@ -214,40 +213,6 @@ function crearBotonOpcion(letra, texto, indice) {
   });
 
   return $btn;
-}
-
-function crearRevisionItem(indice, resultado) {
-  var $item = $("<div>", { "class": "review-item" });
-  var $pregunta = $("<div>", {
-    "class": "review-q",
-    text: (indice + 1) + ". " + resultado.pregunta
-  });
-  var $respuesta = $("<div>", { "class": "review-ans" });
-  var tuRespuesta = "Sin respuesta";
-
-  if (resultado.esCorrecta) {
-    $respuesta.append($("<span>", {
-      "class": "correct-ans",
-      text: "Correcto: " + resultado.opciones[resultado.respuestaCorrecta]
-    }));
-  } else {
-    if (resultado.respuestaUsuario >= 0) {
-      tuRespuesta = resultado.opciones[resultado.respuestaUsuario];
-    }
-
-    $respuesta
-      .append($("<span>", { "class": "your", text: "Tu respuesta: " + tuRespuesta }))
-      .append(document.createTextNode(" - "))
-      .append(
-        $("<span>", {
-          "class": "correct-ans",
-          text: "Correcta: " + resultado.opciones[resultado.respuestaCorrecta]
-        })
-      );
-  }
-
-  $item.append($pregunta, $respuesta);
-  return $item;
 }
 
 $(document).on("click", ".cat-btn", function () {
@@ -475,13 +440,6 @@ function mostrarResultados() {
   $correctStat.text(correctas);
   $wrongStat.text(incorrectas);
   $timeStat.text(tiempoPromedio + "s");
-
-  $reviewList.empty();
-  $reviewList.append($("<p>", { "class": "section-label", text: "Revision de respuestas" }));
-
-  for (i = 0; i < resultados.length; i++) {
-    $reviewList.append(crearRevisionItem(i, resultados[i]));
-  }
 
   mostrarPantalla("result-screen");
 }
