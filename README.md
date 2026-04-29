@@ -37,7 +37,7 @@ interactive_quiz/
 
 ## Notas
 
-- no requiere backend
-- no requiere base de datos
-- no necesita proceso de build
+- No requiere backend
+- No requiere base de datos
+- No necesita proceso de build
 - Sitio estático con interacción del lado del cliente
