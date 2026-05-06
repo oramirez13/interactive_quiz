@@ -37,6 +37,5 @@ interactive_quiz/
 
 - No requiere backend
 - No requiere base de datos
-- El CSS está escrito con estilos simples y claros, adecuado para estudiantes de nivel intermedio
 - No necesita proceso de build
 - Sitio estático con interacción del lado del cliente
