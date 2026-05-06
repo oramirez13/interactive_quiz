@@ -33,8 +33,6 @@ interactive_quiz/
 - retroalimentación inmediata
 - resumen final de resultados
 
-
-
 ## Notas
 
 - No requiere backend
