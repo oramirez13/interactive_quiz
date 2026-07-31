@@ -3,7 +3,35 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Interactive Quiz Game</title>
+
+    <!-- Descripcion corta: la usan los buscadores y las redes sociales -->
+    <meta
+      name="description"
+      content="Quiz interactivo de desarrollo web para practicar conocimientos de JavaScript, HTML, CSS y cultura tech. Elige categoria, dificultad y pon a prueba tus habilidades con temporizador."
+    />
+
+    <!-- Metadatos Open Graph: controlan la vista previa al compartir el link en redes sociales -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Interactive Quiz - Desarrollo Web" />
+    <meta
+      property="og:description"
+      content="Quiz interactivo de desarrollo web con categorias, dificultades, temporizador y repaso de respuestas."
+    />
+    <meta
+      property="og:url"
+      content="https://github.com/oramirez13/interactive_quiz"
+    />
+    <meta
+      property="og:image"
+      content="https://raw.githubusercontent.com/oramirez13/interactive_quiz/main/img/icons8-trophy-48.png"
+    />
+    <meta property="og:site_name" content="interactive_quiz" />
+
+    <title>Quiz Interactivo - Desarrollo Web</title>
+
+    <!-- Favicon: icono pequeno que se muestra en la pestana del navegador -->
+    <link rel="icon" type="image/svg+xml" href="img/favicon.svg" />
+
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -13,6 +41,16 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
+    <!-- Aviso si JavaScript esta desactivado: sin el, el quiz no puede funcionar -->
+    <noscript>
+      <div class="container py-4 text-center">
+        <p>
+          Este quiz necesita JavaScript para funcionar. Activa JavaScript en tu
+          navegador.
+        </p>
+      </div>
+    </noscript>
+
     <main id="app-root">
       <div id="start-screen" class="screen active" aria-hidden="false">
         <div class="container py-5">
@@ -28,7 +66,8 @@
               <p class="section-label">Elige una categoria</p>
               <div class="row mb-4" id="cat-grid">
                 <div class="col-6 col-md-3 mb-2">
-                  <button class="cat-btn w-100 selected" data-cat="javascript" type="button">
+                  <!-- aria-pressed indica al lector de pantalla cual boton esta seleccionado -->
+                  <button class="cat-btn w-100 selected" data-cat="javascript" type="button" aria-pressed="true">
                     <img src="img/js.png" alt="JavaScript" width="32" class="cat-img" />
                     <br />
                     JavaScript
@@ -36,7 +75,7 @@
                 </div>
 
                 <div class="col-6 col-md-3 mb-2">
-                  <button class="cat-btn w-100" data-cat="html" type="button">
+                  <button class="cat-btn w-100" data-cat="html" type="button" aria-pressed="false">
                     <img src="img/html-5.png" alt="HTML" width="32" class="cat-img" />
                     <br />
                     HTML
@@ -44,15 +83,15 @@
                 </div>
 
                 <div class="col-6 col-md-3 mb-2">
-                  <button class="cat-btn w-100" data-cat="css" type="button">
-                    <span class="cat-icon">&#127912;</span>
+                  <button class="cat-btn w-100" data-cat="css" type="button" aria-pressed="false">
+                    <img src="img/css.svg" alt="CSS" width="32" class="cat-img" />
                     <br />
                     CSS
                   </button>
                 </div>
 
                 <div class="col-6 col-md-3 mb-2">
-                  <button class="cat-btn w-100" data-cat="general" type="button">
+                  <button class="cat-btn w-100" data-cat="general" type="button" aria-pressed="false">
                     <img src="img/www.png" alt="Cultura Tech" width="32" class="cat-img" />
                     <br />
                     Cultura Tech
@@ -62,10 +101,15 @@
 
               <p class="section-label">Dificultad</p>
               <div class="btn-group mb-4 w-100" id="diff-group" role="group">
-                <button class="diff-btn selected" data-diff="easy" type="button">Facil</button>
-                <button class="diff-btn" data-diff="medium" type="button">Medio</button>
-                <button class="diff-btn" data-diff="hard" type="button">Dificil</button>
+                <button class="diff-btn selected" data-diff="easy" type="button" aria-pressed="true">Facil</button>
+                <button class="diff-btn" data-diff="medium" type="button" aria-pressed="false">Medio</button>
+                <button class="diff-btn" data-diff="hard" type="button" aria-pressed="false">Dificil</button>
               </div>
+
+              <!-- Informacion util para el jugador: cantidad de preguntas, tiempos y bonus -->
+              <p class="quiz-info">5 preguntas por quiz</p>
+              <p class="quiz-info">Tiempo por pregunta: Facil 20s - Medio 15s - Dificil 10s</p>
+              <p class="quiz-info mb-4">Bonus por tiempo: responde rapido para sumar puntos extra</p>
 
               <button class="btn-start w-100" id="start-btn" type="button">Comenzar Quiz</button>
             </div>
@@ -80,7 +124,8 @@
               <div class="d-flex align-items-center justify-content-between mb-3">
                 <span class="q-counter" id="q-counter" aria-live="polite">1 / 5</span>
 
-                <div class="progress flex-grow-1 mx-3">
+                <!-- progress-spacer: margen propio en CSS para no depender de utilidades con !important -->
+                <div class="progress flex-grow-1 progress-spacer">
                   <div
                     class="progress-bar"
                     id="prog-bar"
@@ -119,10 +164,11 @@
         <div class="container py-5">
           <div class="row justify-content-center">
             <div class="col-md-8 col-lg-6 text-center">
-              <div class="result-emoji mb-2" id="res-emoji">&#127881;</div>
+              <div class="result-emoji mb-2" id="res-emoji"></div>
               <h2 class="result-title" id="res-title" tabindex="-1">Excelente!</h2>
               <div class="score-big" id="res-score">80%</div>
-              <p class="score-sub mb-4" id="res-sub">8 de 10 correctas</p>
+              <p class="score-sub" id="res-sub">8 de 10 correctas</p>
+              <p class="best-score mb-4" id="best-score"></p>
 
               <div class="row mb-4">
                 <div class="col-4">
@@ -148,12 +194,18 @@
               </div>
 
               <div class="d-flex">
-                <button class="btn-start flex-grow-1 mr-2" id="retry-btn" type="button">
+                <button class="btn-start flex-grow-1" id="retry-btn" type="button">
                   Repetir Quiz
                 </button>
                 <button class="btn-secondary-action flex-grow-1" id="new-btn" type="button">
                   Nueva Categoria
                 </button>
+              </div>
+
+              <!-- Repaso de respuestas: lista con cada pregunta, la respuesta del usuario y la correcta -->
+              <div id="review-section" class="d-none text-left mt-4">
+                <h3 class="review-title">Repaso de respuestas</h3>
+                <div id="review-list" class="review-list"></div>
               </div>
             </div>
           </div>
