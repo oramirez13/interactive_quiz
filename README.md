@@ -15,6 +15,38 @@ El proyecto funciona completamente en el navegador con HTML, CSS, JavaScript, jQ
 - Repaso de respuestas al final
 - Mejor puntaje guardado en el navegador
 
+## Capturas
+
+### Pantalla de inicio
+
+Seleccion de categoria, dificultad y datos del quiz.
+
+![Pantalla de inicio](screenshots/interactive_quiz_01.png)
+
+### Pregunta del quiz
+
+Una pregunta con temporizador, barra de progreso y puntaje en tiempo real.
+
+![Pregunta del quiz](screenshots/interactive_quiz_02.png)
+
+### Retroalimentacion de respuesta
+
+La respuesta seleccionada se marca y se muestra retroalimentacion inmediata.
+
+![Retroalimentacion de respuesta](screenshots/interactive_quiz_03.png)
+
+### Pantalla de resultados
+
+Puntaje final, estadisticas y mejor puntaje guardado en el navegador.
+
+![Pantalla de resultados](screenshots/interactive_quiz_04.png)
+
+### Repaso de respuestas
+
+Lista con cada pregunta, la respuesta del usuario y la correcta.
+
+![Repaso de respuestas](screenshots/interactive_quiz_05.png)
+
 ## Tecnologias
 
 - HTML5
